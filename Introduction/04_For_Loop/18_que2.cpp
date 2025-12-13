@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n = 6;
+    for (int i = 1; i <= 10; i++)
+    {
+       cout<<(n*i)<<" ";
+    }
+    cout << endl;//multiplication table of n
+    return 0;
+}

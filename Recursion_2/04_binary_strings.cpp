@@ -30,7 +30,6 @@ void binString(int n, string ans){
     }
 }
 
-
 int main(){
     string ans = "";
     binString(3, ans);

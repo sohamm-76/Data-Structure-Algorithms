@@ -48,27 +48,29 @@ bool isSafe(vector<vector<char>>board, int row, int col){
     return true;
 }
 
-void nQueens(vector<vector<char>>board, int row){
+int nQueens(vector<vector<char>>board, int row){
     int n = board.size();
     if(row == n){
         printBoard(board);
-        return;
+        return 1;
     }
 
+    int count = 0;
     for(int j=0; j<n; j++){
         if(isSafe(board, row, j)){
             board[row][j] = 'Q';
-            nQueens(board, row+1);
+            count += nQueens(board, row+1);
             board[row][j] = '.';
         }
-        
     }
+
+    return count;//no of possible solutions at each level
 }
 
 
 int main(){
     vector<vector<char>> board;
-    int n = 4;
+    int n = 5;
 
     for(int i=0; i<n; i++){
         vector<char> newRow;
@@ -78,6 +80,7 @@ int main(){
         board.push_back(newRow);
     }
 
-    nQueens(board, 0);
+    int count = nQueens(board, 0);
+    cout << "count: " << count << endl;
     return 0;
 }
